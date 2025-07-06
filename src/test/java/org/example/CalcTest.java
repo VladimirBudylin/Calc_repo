@@ -42,7 +42,6 @@ class CalcTest {
 
 
     @Test
-    @RepeatedTest(10)
     @DisplayName(value = "Проверка сложения")
     @Timeout(value = 10)
     void summ1() {
@@ -75,16 +74,15 @@ class CalcTest {
         Assertions.assertEquals(expectedResult, result,"Ответ неверный");
     }
 
-        @Test
-        @RepeatedTest(10)
-        @DisplayName(value = "Проверка вычитания")
+    @Test
+    @DisplayName(value = "Проверка вычитания")
 
-        void subb1 () {
+    void subb1 () {
 
-            CalcMinus calculator = new CalcMinus();
-            int result = calculator.CalcMinus (10,9);
-            Assertions.assertEquals(1, result, "Ответ неверный");
-        }
+        CalcMinus calculator = new CalcMinus();
+        int result = calculator.CalcMinus (10,9);
+        Assertions.assertEquals(1, result, "Ответ неверный");
+    }
 
 
 
