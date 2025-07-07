@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalcTest {
 
@@ -44,10 +44,10 @@ class CalcTest {
     @Test
     @DisplayName(value = "Проверка сложения")
     @Timeout(value = 10)
-    void summ1() {
+    void TestSuiteSumm1() {
         CalcPlus calculator = new CalcPlus();
         int result = calculator.CalcPlus(99,1);
-        Assertions.assertEquals(100, result,"Ответ неверный");
+        assertEquals(100, result,"Ответ не равен 100");
     }
 
 
@@ -56,10 +56,10 @@ class CalcTest {
     @DisplayName(value = "Проверка сложения2")
     @Timeout(value = 10)
 
-    void summ2() {
+    void TestSuiteSumm2() {
         CalcPlus calculator = new CalcPlus();
         int result = calculator.CalcPlus(99,1);
-        Assertions.assertEquals(100, result,"Ответ неверный");
+        assertEquals(100, result,"Сложение неверно");
     }
 
 
@@ -68,30 +68,30 @@ class CalcTest {
     @CsvSource({"1, 2, 3", "-1, 2, 1","0, 0, 0"})
     @Tag("Param")
 
-    void summ3(int a, int b, int expectedResult) {
+    void TestSuiteSumm3(int a, int b, int expectedResult) {
         CalcPlus calculator = new CalcPlus();
         int result = calculator.CalcPlus(a,b);
-        Assertions.assertEquals(expectedResult, result,"Ответ неверный");
+        assertEquals(expectedResult, result,"Ответ неверный");
     }
 
     @Test
     @DisplayName(value = "Проверка вычитания")
 
-    void subb1 () {
+    void TestSuiteMinus1 () {
 
         CalcMinus calculator = new CalcMinus();
         int result = calculator.CalcMinus (10,9);
-        Assertions.assertEquals(1, result, "Ответ неверный");
+        assertEquals(1, result, "Сумма неверна");
     }
 
 
 
-        @ParameterizedTest(name = "#{index} Вычитая {0} и {1} ожидаем {2}")
-        @DisplayName(value = "Результат вычитания")
-        @CsvSource ({ "10, 1,9", "100, 99, 1", "0, 0, 0"})
-        void subb2(int c, int d , int subbResult) {
-            CalcMinus calculator = new CalcMinus();
-            int result = calculator.CalcMinus(c,d);
-            Assertions.assertEquals(subbResult,result, "Ответ неверный");
-        }
+    @ParameterizedTest(name = "#{index} Вычитая {0} и {1} ожидаем {2}")
+    @DisplayName(value = "Результат вычитания")
+    @CsvSource ({ "10, 1,9", "100, 99, 1", "0, 0, 0"})
+    void TestSuiteMinus2 (int c, int d , int subbResult) {
+        CalcMinus calculator = new CalcMinus();
+        int result = calculator.CalcMinus(c,d);
+        Assertions.assertEquals(subbResult,result, "Ответ неверный");
     }
+}

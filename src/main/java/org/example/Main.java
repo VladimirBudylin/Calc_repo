@@ -7,4 +7,4 @@ public class Main {
         CalcPlus calculator = new CalcPlus();
         calculator.CalcPlus(99,1);
         }
-    }
+}
